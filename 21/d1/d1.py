@@ -4,21 +4,21 @@ import numpy as np
 
 def count_inc(file_name):
     past_val = None
-    inc_count = 0
 
     with open(file_name, 'r') as f:
+        counter = 0
         for val in f:
             if past_val is not None:
                 if val > past_val:
-                    inc_count += 1
+                    counter += 1
             past_val = val
 
-    return inc_count
+    return counter
 
 
 def count_inc_3(file_name):
     counts = np.array([0, 0, 0])
-    inc_count = 0
+    counter = 0
     comp_val = None
 
     with open(file_name, 'r') as f:
@@ -34,17 +34,12 @@ def count_inc_3(file_name):
                 j = (i+1) % 3
                 sum_val = counts[j]
                 if comp_val is not None:
-                        if sum_val > comp_val:
-                            inc_count += 1
+                    if sum_val > comp_val:
+                        counter += 1
                 comp_val = sum_val
                 counts[j] = 0
 
-    return inc_count 
-
-
-
-
-
+    return counter
 
 
 if __name__ == "__main__":
@@ -52,5 +47,3 @@ if __name__ == "__main__":
     print(incs)
     inc_count = count_inc_3(sys.argv[1])
     print(inc_count)
-
-
