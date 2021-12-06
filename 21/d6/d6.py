@@ -35,6 +35,7 @@ def better_count_fish(file_name, n_days):
         age_dic[6] += new_fish
     return sum(age_dic.values())
 
+
 if __name__ == "__main__":
     fish_in_80 = simulate_fish(sys.argv[1], 80)
     print(fish_in_80)
